@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins-backup-config
+  namespace: jenkins
+data:
+  NAMESPACE: "jenkins"
+  DEPLOYMENT_NAME: "jenkins"
+  S3_BUCKET: "backupjenkinsrt/jenkins"
+  AWS_REGION: "us-east-1"
+

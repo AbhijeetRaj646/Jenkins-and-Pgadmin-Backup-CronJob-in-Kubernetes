@@ -1,0 +1,39 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: database-backup-cronjob
+  namespace: database
+spec:
+  schedule: "* * * * *"  # Runs every 10 minutes
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: another-service-account
+          containers:
+          - name: database-backup
+            image: database-image:latest
+            imagePullPolicy: Never
+            command: ["/bin/sh", "-c"]
+            args: ["/usr/local/bin/backup-script-database.sh"]
+            env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: aws_access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: aws_secret_access_key
+            volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+              readOnly: true
+          restartPolicy: OnFailure
+          volumes:
+          - name: config-volume
+            configMap:
+              name: postgres-backup-config
+

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-backup-config
+  namespace: database
+data:
+  NAMESPACE: "database"
+  DEPLOYMENT_NAME: "postgres"
+  S3_BUCKET: "backupjenkinsrt/database"
+  AWS_REGION: "us-east-1"
+  DB_NAME: "mydatabase"
+  DB_USER: "myuser"
+  DB_PASSWORD: "mypassword"
