@@ -21,13 +21,6 @@ pipeline {
                     publishChecks(name: 'Stage Reporter', conclusion: ChecksConclusion.SUCCESS, summary: 'Build successful')
                 }
             }
-            post {
-                failure {
-                    script {
-                        publishChecks(name: 'Stage Reporter', conclusion: ChecksConclusion.FAILURE, summary: 'Build failed')
-                    }
-                }
-            }
         }
 
         stage('Test') {
@@ -42,13 +35,6 @@ pipeline {
                     publishChecks(name: 'Stage Reporter', conclusion: ChecksConclusion.SUCCESS, summary: 'Tests passed')
                 }
             }
-            post {
-                failure {
-                    script {
-                        publishChecks(name: 'Stage Reporter', conclusion: ChecksConclusion.FAILURE, summary: 'Tests failed')
-                    }
-                }
-            }
         }
 
         stage('Deploy') {
@@ -60,13 +46,6 @@ pipeline {
                 echo "sleep"
                 script {
                     publishChecks(name: 'Stage Reporter', conclusion: ChecksConclusion.SUCCESS, summary: 'Deployment successful')
-                }
-            }
-            post {
-                failure {
-                    script {
-                        publishChecks(name: 'Stage Reporter', conclusion: ChecksConclusion.FAILURE, summary: 'Deployment failed')
-                    }
                 }
             }
         }
