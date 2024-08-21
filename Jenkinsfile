@@ -12,12 +12,12 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    publishChecks(name: 'Stage Reporter', status: ChecksStatus.IN_PROGRESS, summary: 'Building...')
+                    // Assuming publishChecks is a custom step or function
+                    publishChecks(name: 'Stage Reporter', status: 'IN_PROGRESS', summary: 'Building...')
                 }
                 echo "helo"
-                // Mark the build as complete
                 script {
-                    publishChecks(name: 'Stage Reporter', conclusion: ChecksConclusion.SUCCESS, summary: 'Build completed')
+                    publishChecks(name: 'Stage Reporter', conclusion: 'SUCCESS', summary: 'Build completed')
                 }
             }
         }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 echo "sleep"
                 script {
-                    publishChecks(name: 'Stage Reporter', conclusion: ChecksConclusion.SUCCESS, summary: 'Tests passed')
+                    publishChecks(name: 'Stage Reporter', conclusion: 'SUCCESS', summary: 'Tests passed')
                 }
             }
         }
@@ -34,13 +34,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    publishChecks(name: 'Stage Reporter', status: ChecksStatus.IN_PROGRESS, summary: 'Deploying...')
+                    publishChecks(name: 'Stage Reporter', status: 'IN_PROGRESS', summary: 'Deploying...')
                 }
                 // Deploy the application
                 echo "sleep"
-                // Mark the deployment as complete
                 script {
-                    publishChecks(name: 'Stage Reporter', conclusion: ChecksConclusion.SUCCESS, summary: 'Deployment completed')
+                    publishChecks(name: 'Stage Reporter', conclusion: 'SUCCESS', summary: 'Deployment completed')
                 }
             }
         }
