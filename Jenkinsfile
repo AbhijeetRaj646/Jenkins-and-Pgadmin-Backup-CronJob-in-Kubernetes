@@ -12,11 +12,12 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Assuming publishChecks is a custom step or function
+                    // Mark the build stage as in progress
                     publishChecks(name: 'Stage Reporter', status: 'IN_PROGRESS', summary: 'Building...')
                 }
-                echo "helo"
+                echo "Building the project..."
                 script {
+                    // Mark the build stage as successful
                     publishChecks(name: 'Stage Reporter', conclusion: 'SUCCESS', summary: 'Build completed')
                 }
             }
@@ -24,8 +25,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                echo "sleep"
+                echo "Running tests..."
                 script {
+                    // Mark the test stage as successful
                     publishChecks(name: 'Stage Reporter', conclusion: 'SUCCESS', summary: 'Tests passed')
                 }
             }
@@ -34,13 +36,28 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
+                    // Mark the deploy stage as in progress
                     publishChecks(name: 'Stage Reporter', status: 'IN_PROGRESS', summary: 'Deploying...')
                 }
-                // Deploy the application
-                echo "sleep"
+                echo "Deploying the application..."
                 script {
+                    // Mark the deploy stage as successful
                     publishChecks(name: 'Stage Reporter', conclusion: 'SUCCESS', summary: 'Deployment completed')
                 }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                // Add the custom publishChecks block as a post-build step
+                publishChecks name: 'example', 
+                              title: 'Pipeline Check', 
+                              summary: 'Check through pipeline',
+                              text: 'You can publish checks in the pipeline script.',
+                              detailsURL: 'https://github.com/jenkinsci/checks-api-plugin#pipeline-usage',
+                              actions: [[label: 'an-user-request-action', description: 'Actions allow users to request pre-defined behaviours', identifier: 'an-unique-identifier']]
             }
         }
     }
