@@ -33,8 +33,7 @@ pipeline {
                     recordIssues(
                         enabledForFailure: true,
                         aggregatingResults: true,
-                        tool: pyLint(pattern: 'pylint.log'),
-                        publishChecks: true
+                        tool: pyLint(pattern: 'pylint.log')
                     )
                     
                     echo "Running tests..."
