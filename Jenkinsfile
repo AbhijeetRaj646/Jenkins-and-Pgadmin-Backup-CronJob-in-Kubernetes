@@ -59,22 +59,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            script {
-                // Publish a final check after the pipeline has completed
-                withChecks('Final Check') {
-                    publishChecks(
-                        name: 'example', 
-                        title: 'Pipeline Check', 
-                        summary: 'Check through pipeline', 
-                        text: 'You can publish checks in the pipeline script.',
-                        detailsURL: 'https://github.com/jenkinsci/checks-api-plugin#pipeline-usage',
-                        actions: [[label: 'an-user-request-action', description: 'Actions allow users to request pre-defined behaviors', identifier: 'an-unique-identifier']]
-                    )
-                }
-            }
-        }
-    }
 }
