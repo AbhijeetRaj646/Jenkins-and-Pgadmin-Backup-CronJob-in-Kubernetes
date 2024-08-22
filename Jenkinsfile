@@ -42,7 +42,12 @@ pipeline {
                 echo "Deploying the application..."
                 script {
                     // Mark the deploy stage as successful
-                    publishChecks(name: 'Stage Reporter', conclusion: 'SUCCESS', summary: 'Deployment completed')
+                publishChecks name: 'example', 
+                              title: 'Pipeline Check', 
+                              summary: 'Check through pipeline',
+                              text: 'You can publish checks in the pipeline script.',
+                              detailsURL: 'https://github.com/jenkinsci/checks-api-plugin#pipeline-usage',
+                              actions: [[label: 'an-user-request-action', description: 'Actions allow users to request pre-defined behaviours', identifier: 'an-unique-identifier']]
                 }
             }
         }
