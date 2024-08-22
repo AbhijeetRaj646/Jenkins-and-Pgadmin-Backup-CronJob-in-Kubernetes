@@ -1,0 +1,31 @@
+************* Module update_jira_ticket
+update_jira_ticket.py:13: [C0303(trailing-whitespace), ] Trailing whitespace
+update_jira_ticket.py:318: [C0301(line-too-long), ] Line too long (101/100)
+update_jira_ticket.py:435: [C0301(line-too-long), ] Line too long (110/100)
+update_jira_ticket.py:21: [R0902(too-many-instance-attributes), UpdateTicket] Too many instance attributes (12/7)
+update_jira_ticket.py:125: [W0718(broad-exception-caught), UpdateTicket.fetch_updated_tickets] Catching too general exception Exception
+update_jira_ticket.py:126: [W1203(logging-fstring-interpolation), UpdateTicket.fetch_updated_tickets] Use lazy % formatting in logging functions
+update_jira_ticket.py:152: [W0718(broad-exception-caught), UpdateTicket.connect_database] Catching too general exception Exception
+update_jira_ticket.py:153: [W1203(logging-fstring-interpolation), UpdateTicket.connect_database] Use lazy % formatting in logging functions
+update_jira_ticket.py:186: [W0718(broad-exception-caught), UpdateTicket.get_value_from_dataframe] Catching too general exception Exception
+update_jira_ticket.py:183: [W1203(logging-fstring-interpolation), UpdateTicket.get_value_from_dataframe] Use lazy % formatting in logging functions
+update_jira_ticket.py:220: [W0718(broad-exception-caught), UpdateTicket.find_target_priority] Catching too general exception Exception
+update_jira_ticket.py:225: [R0914(too-many-locals), UpdateTicket.update_tickets_between_boards] Too many local variables (40/15)
+update_jira_ticket.py:386: [W0718(broad-exception-caught), UpdateTicket.update_tickets_between_boards] Catching too general exception Exception
+update_jira_ticket.py:317: [W0718(broad-exception-caught), UpdateTicket.update_tickets_between_boards] Catching too general exception Exception
+update_jira_ticket.py:314: [W0718(broad-exception-caught), UpdateTicket.update_tickets_between_boards] Catching too general exception Exception
+update_jira_ticket.py:318: [W1203(logging-fstring-interpolation), UpdateTicket.update_tickets_between_boards] Use lazy % formatting in logging functions
+update_jira_ticket.py:329: [W0718(broad-exception-caught), UpdateTicket.update_tickets_between_boards] Catching too general exception Exception
+update_jira_ticket.py:239: [R1702(too-many-nested-blocks), UpdateTicket.update_tickets_between_boards] Too many nested blocks (7/5)
+update_jira_ticket.py:364: [W0718(broad-exception-caught), UpdateTicket.update_tickets_between_boards] Catching too general exception Exception
+update_jira_ticket.py:362: [E1205(logging-too-many-args), UpdateTicket.update_tickets_between_boards] Too many arguments for logging format string
+update_jira_ticket.py:365: [W1203(logging-fstring-interpolation), UpdateTicket.update_tickets_between_boards] Use lazy % formatting in logging functions
+update_jira_ticket.py:239: [R1702(too-many-nested-blocks), UpdateTicket.update_tickets_between_boards] Too many nested blocks (7/5)
+update_jira_ticket.py:225: [R0912(too-many-branches), UpdateTicket.update_tickets_between_boards] Too many branches (16/12)
+update_jira_ticket.py:225: [R0915(too-many-statements), UpdateTicket.update_tickets_between_boards] Too many statements (76/50)
+update_jira_ticket.py:314: [W0612(unused-variable), UpdateTicket.update_tickets_between_boards] Unused variable 'e'
+update_jira_ticket.py:414: [W1203(logging-fstring-interpolation), UpdateTicket.write_utc_plus_one_time_to_file] Use lazy % formatting in logging functions
+
+------------------------------------------------------------------
+Your code has been rated at 8.48/10 (previous run: 8.55/10, -0.08)
+
