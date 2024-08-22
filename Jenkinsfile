@@ -31,7 +31,9 @@ pipeline {
                     // Publish a check indicating the test stage is in progress
                     publishChecks(name: 'Test', status: 'IN_PROGRESS', summary: 'Running tests...')
                     recordIssues enabledForFailure: true, tool: pyLint(pattern: 'pylint.log'), skipPublishingChecks: true
-            
+                    withChecks('My Custom Checks Name') {
+                      recordIssues tool: pylint(pattern: '*.log')
+                    }
                     
                     echo "Running tests..."
                     
